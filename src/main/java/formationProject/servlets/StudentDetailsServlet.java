@@ -10,16 +10,18 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class StudentDetailsServlet
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/student-details")
+public class StudentDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public Login() {}
+    public StudentDetailsServlet() {
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
