@@ -13,9 +13,6 @@ import models.Student;
 import services.FormationsServices;
 
 
-/**
- * Servlet implementation class StudentsListServlet
- */
 @WebServlet(urlPatterns={"/studentslist"})
 public class StudentsListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -36,16 +33,12 @@ public class StudentsListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("STUDENTS", students);
+		request.setAttribute("students", students);
 		
 		request.getRequestDispatcher("/WEB-INF/studentslist.jsp").forward(request, response);
 	}
+
+	
 	}
 
-}
+
