@@ -1,4 +1,5 @@
-<%-- <%@page import="formationProject.models.*" %> --%>
+<%@page import="java.util.List"%>
+<%@page import="formationProject.models.Formation" %> 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -13,10 +14,11 @@
 		<h1>Formations List</h1>
 		
 		<ul>
-<%-- 			<% for (Formation formation : (List<Formation>) request.getAttribute("formations")) { %>
- --%>			<li> 
-<%-- 				<a href="/formationProject/formations-list?title=<%= formation.getTitle() %>"><%= formation.getTitle() %></a>
- --%>			</li>
+			<% for (Formation formation : (List<Formation>) request.getAttribute("formations")) { %>
+			<li> 
+ 				<a href="/formationslist?title=<%= formation.getTitle() %>"><%= formation.getTitle() %></a>
+			</li>
+			<% } %>
 		</ul>
 	</div>
 </body>

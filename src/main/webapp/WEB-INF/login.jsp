@@ -1,6 +1,10 @@
-<%-- <%@ include file="/fragments/header.html" %> --%>
- 
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Header</title>
+</head>
+<body>
  
  <div style="text-align: center">
  
@@ -17,7 +21,10 @@
             <button type="submit">Login</button>
 		
 	</form>
+	
+	<p>username : toto / password : azerty</p> 
  </div>
  
 	
-<%-- <%@ include file="./fragments/footer.html" %> --%>
+</body>
+</html>

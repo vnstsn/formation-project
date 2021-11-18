@@ -2,6 +2,8 @@ package formationProject.servlets;
 
 import java.io.IOException;
 
+import formationProject.models.Formation;
+import formationProject.services.FormationsServices;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,22 +14,28 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class FormationDetailsServlet
  */
-@WebServlet("/formation-details")
+@WebServlet("/formationdetails")
 public class FormationDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    /**
+	private FormationsServices formationsServices = FormationsServices.getInstance();
+    private Formation formation;
+	/**
      * Default constructor. 
      */
-    public FormationDetailsServlet() {
-        // TODO Auto-generated constructor stub
-    }
+    public FormationDetailsServlet() {}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		formation = this.formationsServices.getFormationByName(request.getParameter("title"));
+		
+		if (formation == null) {
+			response.sendRedirect("/home/formationProject/formationdetails");
+		}
+		request.setAttribute("formation", formation);
+		request.getRequestDispatcher("/WEB-INF.formationdetails.jsp");
 	}
 
 	/**

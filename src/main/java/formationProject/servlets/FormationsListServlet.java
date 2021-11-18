@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class FormationsListServlet
  */
-@WebServlet("/formationsList")
+@WebServlet(urlPatterns = {"/formationslist"})
 public class FormationsListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	// create an empty list to contain all formations
@@ -36,7 +36,7 @@ public class FormationsListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("FORMATIONS", formations);
-		request.getRequestDispatcher("/WEB-INF/formations-list.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/formationslist.jsp").forward(request, response);
 	}
 
 	/**
