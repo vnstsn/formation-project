@@ -9,5 +9,14 @@
 </head>
 <body>
 	<h1>Formation Details</h1>
+	
+	<% Formation formation = (Formation) request.getAttribute("formation"); %>
+	<h1><%= formation.getTitle() %></h1>
+	<p>
+		<%= formation.getProgram() %>
+	</p>
+	<p>
+	<%= formation.getNbStudents() %></b>
+	</p>
 </body>
 </html>
