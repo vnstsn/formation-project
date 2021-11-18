@@ -12,9 +12,9 @@
 		<h3>This is a homepage</h3>
 		
 		<ul>
-			<li><a href="/formationProject/formationslist">List of all formations</a></li>
+			<li><a href="/formationProject/home/formationslist">List of all formations</a></li>
 			
-			<li><a href="/formationProject//studentslist">Students list</a></li>
+			<li><a href="/formationProject/home/studentslist">Students list</a></li>
 		</ul>
 	
 	</div>

@@ -1,4 +1,4 @@
-package formationProject.servlets;
+package servlets;
 
 import java.io.IOException;
 
@@ -7,19 +7,19 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import models.User;
 
 
-/**
- * Servlet implementation class StudentsListServlet
- */
-@WebServlet("/studentslist")
-public class StudentsListServlet extends HttpServlet {
+
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public StudentsListServlet() {
+    public LoginServlet() {
         // TODO Auto-generated constructor stub
     }
 
@@ -27,7 +27,15 @@ public class StudentsListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//System.out.println("Hello");
+		// test connected user 
+		User userLog = new User("toto", "azerty");
+		
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("USER", userLog);
+		
+		request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 	}
 
 	/**
@@ -35,7 +43,20 @@ public class StudentsListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		
+		if(username.equals("toto") && password.equals("azerty")) {
+			response.sendRedirect(request.getContextPath() + "/home");
+		
+		} else {
+			response.sendRedirect(request.getContextPath() + "/login");
+			
+		}
+		
+		//doGet(request, response);
+
 	}
 
 }

@@ -1,4 +1,4 @@
-package formationProject.models;
+package models;
 
 public class Student {
 	private String name;
