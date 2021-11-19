@@ -16,7 +16,7 @@
 		<%= formation.getProgram() %>
 	</p>
 	<p>
-	<%= formation.getNbStudents() %></b>
+	<%= formation.getNbStudents() %>
 	</p>
 </body>
 </html>

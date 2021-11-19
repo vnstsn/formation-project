@@ -7,15 +7,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.Formation;
 import models.Student;
 import services.FormationsServices;
 
 
-/**
- * Servlet implementation class StudentDetailsServlet
- */
-@WebServlet("/studentdetails")
+@WebServlet(urlPatterns={"/studentdetails"})
 public class StudentDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private FormationsServices studentsServices = FormationsServices.getInstance();
@@ -23,24 +19,23 @@ public class StudentDetailsServlet extends HttpServlet {
     /**
      * Default constructor. 
      */
-    public StudentDetailsServlet() {
-        // TODO Auto-generated constructor stub
-    }
+    public StudentDetailsServlet() {}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		student = this.studentsServices.getStudentByName(request.getParameter("name"), "firstname");
+		student = this.studentsServices.getStudentByName(request.getParameter("name"));
 		
 		if (student == null) {
 			response.sendRedirect(request.getContextPath() + "/home");
 			return;
 		}
+		
 		request.setAttribute("student", student);
 		
-		request.getRequestDispatcher("/WEB-INF/formationdetails.jsp");
+		request.getRequestDispatcher("/WEB-INF/studentdetails.jsp").forward(request, response);
 	}
 
 	/**

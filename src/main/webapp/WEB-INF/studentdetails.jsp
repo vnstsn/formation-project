@@ -15,13 +15,13 @@
 		<%= student.getFirstName() %>
 	</p>
 	<p>
-	<%= student.getAge() %></b>
+	<%= student.getAge() %>
 	</p>
 	<p>
-	<%= student.getNote() %></b>
+	<%= student.getNote() %>
 	</p>
 	<p>
-	<%= student.getFormation() %></b>
+	<%= student.getFormation() %>
 	</p>
 </body>
 </html>

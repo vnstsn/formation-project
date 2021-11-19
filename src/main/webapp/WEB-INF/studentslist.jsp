@@ -14,9 +14,9 @@
 		<h1>Students List</h1>
 		
 		<ul>
-			<% for (Student student : (List<Student>) request.getAttribute("formations")) { %>
+			<% for (Student student : (List<Student>) request.getAttribute("students")) { %>
 			<li> 
- 				<a href="/studentslist?title=<%= student.getName() %>"><%= student.getFirstName() %></a>
+ 				<a href="/formationProject/studentdetails?name=<%= student.getName() %>"><%= student.getName() %></a>
 			</li>
 			<% } %>
 		</ul>

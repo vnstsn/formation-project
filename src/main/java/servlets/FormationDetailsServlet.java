@@ -37,7 +37,7 @@ public class FormationDetailsServlet extends HttpServlet {
 		}
 		request.setAttribute("formation", formation);
 		
-		request.getRequestDispatcher("/WEB-INF/formationdetails.jsp");
+		request.getRequestDispatcher("/WEB-INF/formationdetails.jsp").forward(request, response);
 	}
 
 	/**

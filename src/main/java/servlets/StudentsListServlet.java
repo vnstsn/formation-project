@@ -37,8 +37,5 @@ public class StudentsListServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("/WEB-INF/studentslist.jsp").forward(request, response);
 	}
-
-	
-	}
-
+}
 

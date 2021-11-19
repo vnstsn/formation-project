@@ -18,16 +18,19 @@ public class FormationsServices {
 	private FormationsServices() {
 		// list of formations
 		for (int i = 1; i <= 12; i++) {
-			formations.add(new Formation("Formation" + i, "This is the program" + i, i+12));
+			formations.add(new Formation("Formation" + i, "This is the program" + i, i));
 		}
 		
 		// list of students
-		for (int i = 0; i <= 20; i++) {
-			students.add(new Student("name" + i, "firstname" + i, i, i, formations.get(i) ));
+		for (Formation formation : formations) {
+			for (int i = 1; i < 3; i++) {
+				students.add(new Student("Name" + i, "Firstname" + i, 10 + i,  10 + i, formation));
+			}
 		}
+		
 	}
 	
-	// to get instance
+	// to get instanc
 	public static FormationsServices getInstance() {
 		if (FormationsServices.instances == null) {
 			FormationsServices.instances = new FormationsServices();
@@ -56,12 +59,12 @@ public class FormationsServices {
 		return response;
 	}
 	
-	// to get a student with name & firstname
-	public Student getStudentByName(String name, String firstname) {
+	// to get a student with name
+	public Student getStudentByName(String name) {
 		Student response = null;
 		
 		for (Student student : students) {
-			if (student.getName().equals(name) && student.getFirstName().equals(firstname)) {
+			if (student.getName().equals(name)) {
 				response = student;
 				break;
 				
